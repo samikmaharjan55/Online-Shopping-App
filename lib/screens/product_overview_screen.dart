@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:online_shopping_app/model/products.dart';
+import 'package:online_shopping_app/widgets/product_grid.dart';
 import 'package:online_shopping_app/widgets/product_item.dart';
 
 class ProductOverviewScreen extends StatefulWidget {
@@ -13,17 +15,9 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Shop Venue'),
+        title: const Text('Shop Venue'),
       ),
-      body: GridView.builder(
-          itemCount: 4,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            mainAxisSpacing: 10,
-            crossAxisSpacing: 10,
-            childAspectRatio: 3 / 2,
-          ),
-          itemBuilder: (ctx, index) => ProductItem()),
+      body: ProductGrid(),
     );
   }
 }

@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
       title: 'Shop Venue',
       theme: ThemeData(
         primaryColor: Colors.blueGrey,
+        accentColor: Colors.red,
         fontFamily: "Lato",
       ),
       home: const ProductOverviewScreen(),
