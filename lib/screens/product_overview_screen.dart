@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:online_shopping_app/model/products.dart';
 import 'package:online_shopping_app/widgets/product_grid.dart';
-import 'package:online_shopping_app/widgets/product_item.dart';
 
 class ProductOverviewScreen extends StatefulWidget {
   const ProductOverviewScreen({Key? key}) : super(key: key);
@@ -17,7 +15,7 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
       appBar: AppBar(
         title: const Text('Shop Venue'),
       ),
-      body: ProductGrid(),
+      body: const ProductGrid(),
     );
   }
 }

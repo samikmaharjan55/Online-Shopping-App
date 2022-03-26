@@ -1,25 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:online_shopping_app/model/product.dart';
+import 'package:provider/provider.dart';
 
 class ProductItem extends StatelessWidget {
-  final String title;
-  final String imgUrl;
-
-  const ProductItem({Key? key, required this.title, required this.imgUrl})
-      : super(key: key);
+  const ProductItem({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final loadedProduct = Provider.of<Product>(context);
     return ClipRRect(
       borderRadius: BorderRadius.circular(10.0),
       child: GridTile(
         child: Image.network(
-          imgUrl,
+          loadedProduct.imageURL,
           fit: BoxFit.cover,
         ),
         footer: GridTileBar(
           backgroundColor: Colors.black87,
           title: Text(
-            title,
+            loadedProduct.title,
             textAlign: TextAlign.center,
           ),
           leading: IconButton(
