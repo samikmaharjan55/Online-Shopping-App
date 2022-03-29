@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:online_shopping_app/widgets/product_grid.dart';
 
+enum FilterOptions { Favourites, All }
+
 class ProductOverviewScreen extends StatefulWidget {
   const ProductOverviewScreen({Key? key}) : super(key: key);
 
@@ -9,13 +11,37 @@ class ProductOverviewScreen extends StatefulWidget {
 }
 
 class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
+  bool _showFavourites = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Shop Venue'),
+        actions: [
+          PopupMenuButton(
+              icon: const Icon(Icons.more_vert),
+              onSelected: (FilterOptions selectedValue) {
+                setState(() {
+                  if (selectedValue == FilterOptions.Favourites) {
+                    _showFavourites = true;
+                  } else {
+                    _showFavourites = false;
+                  }
+                });
+              },
+              itemBuilder: (context) => [
+                    const PopupMenuItem(
+                      value: FilterOptions.Favourites,
+                      child: Text("Show Favourites"),
+                    ),
+                    const PopupMenuItem(
+                      value: FilterOptions.All,
+                      child: Text("Show All"),
+                    ),
+                  ]),
+        ],
       ),
-      body: const ProductGrid(),
+      body: ProductGrid(_showFavourites),
     );
   }
 }

@@ -23,8 +23,8 @@ class MyApp extends StatelessWidget {
         ),
         initialRoute: "/",
         routes: {
-          "/": (ctx) => ProductOverviewScreen(),
-          ProductDetails.routeName: (ctx) => ProductDetails(),
+          "/": (ctx) => const ProductOverviewScreen(),
+          ProductDetails.routeName: (ctx) => const ProductDetails(),
         },
       ),
     );
